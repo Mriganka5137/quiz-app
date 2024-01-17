@@ -1,4 +1,5 @@
 "use client";
+import useScore from "@/lib/store";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -26,13 +27,18 @@ const QuestionCard = ({
   title,
   answer,
 }: QuestionCardProps) => {
+  const setScore = useScore((state) => state.setScore);
+  const score = useScore((state) => state.score);
+  const nextLink = id === "10" ? "/finish" : `/${title}/${parseInt(id) + 1}`;
   const [select, setSelect] = useState<string | null>(null);
   const [submit, setSubmit] = useState<boolean>(false);
   const [correct, setCorrect] = useState(false);
+  console.log(score);
   const handleSubmit = () => {
     setSubmit(true);
     if (select === answer) {
       setCorrect(true);
+      setScore();
     } else {
       setCorrect(false);
     }
@@ -118,7 +124,7 @@ const QuestionCard = ({
           </button>
         ) : (
           <Link
-            href={`/${title}/${parseInt(id) + 1}`}
+            href={nextLink}
             className="flex bg-purpleCustom px-5 py-7 rounded-3xl  items-center  shadow-lg  dark:shadow-neutral-100/10 shadow-neutral-300  text-heading-s text-pureWhite justify-center"
           >
             Next Question
