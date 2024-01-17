@@ -1,3 +1,4 @@
+import QuestionCard from "@/components/shared/QuestionCard";
 import { data } from "@/lib/constant";
 import React from "react";
 interface AccessibilityPageProps {
@@ -11,14 +12,13 @@ const AccessibilityPage = ({ params: { id } }: AccessibilityPageProps) => {
   const answer = questions[parseInt(id) - 1].answer;
   const options = questions[parseInt(id) - 1].options;
   return (
-    <div>
-      <div>{question}</div>
-      <div>{answer}</div>
-      <div>
-        {options.map((option, index) => (
-          <div key={index}>{option}</div>
-        ))}
-      </div>
+    <div className=" mt-24">
+      <QuestionCard
+        question={question}
+        options={options}
+        id={id}
+        title="accessibility"
+      />
     </div>
   );
 };
