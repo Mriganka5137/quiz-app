@@ -34,8 +34,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="background  bg-lightGray dark:bg-darkNavy">
-            <div className=" main-container w-full h-screen">
+          <main className="background  bg-lightGray dark:bg-darkNavy h-full">
+            <div className=" main-container w-full h-full">
               <Navbar />
               {children}
             </div>

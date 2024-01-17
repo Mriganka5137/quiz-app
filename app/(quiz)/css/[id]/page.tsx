@@ -13,7 +13,13 @@ const CSSPage = ({ params: { id } }: AccessibilityPageProps) => {
   const options = questions[parseInt(id) - 1].options;
   return (
     <div className=" mt-24">
-      <QuestionCard title="css" question={question} options={options} id={id} />
+      <QuestionCard
+        answer={answer}
+        title="css"
+        question={question}
+        options={options}
+        id={id}
+      />
     </div>
   );
 };

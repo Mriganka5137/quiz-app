@@ -15,6 +15,7 @@ const JavaScriptPage = ({ params: { id } }: JavaScriptPageProps) => {
   return (
     <div className=" mt-24">
       <QuestionCard
+        answer={answer}
         title="javascript"
         question={question}
         options={options}

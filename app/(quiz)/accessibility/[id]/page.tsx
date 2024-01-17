@@ -14,6 +14,7 @@ const AccessibilityPage = ({ params: { id } }: AccessibilityPageProps) => {
   return (
     <div className=" mt-24">
       <QuestionCard
+        answer={answer}
         question={question}
         options={options}
         id={id}
