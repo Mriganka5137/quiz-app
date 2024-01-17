@@ -13,7 +13,7 @@ const Topics = () => {
     <div className=" flex flex-col gap-6 w-1/2 max-tablet:w-full">
       {data.map((item, i) => (
         <Link
-          href={`/${item.title.toLowerCase()}`}
+          href={`/${item.title.toLowerCase()}/1`}
           key={i}
           className=" flex items-center bg-pureWhite dark:bg-navyCustom w-full p-5 rounded-xl border border-transparent gap-8 max-tablet:p-3 hover:border-purpleCustom hover:-translate-y-1 transition-all ease-in-out duration-300"
         >

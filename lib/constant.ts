@@ -166,7 +166,7 @@ export const data = [
   },
   {
     title: "JavaScript",
-    icon: "/assets/images/icon-js.svg",
+    icon: "/assets/images/icon-javascript.svg",
     color: "bg-blue-100",
 
     questions: [
