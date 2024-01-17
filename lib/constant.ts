@@ -1,7 +1,8 @@
 export const data = [
   {
     title: "HTML",
-    icon: "./assets/images/icon-html.svg",
+    icon: "/assets/images/icon-html.svg",
+    color: "bg-red-100",
     questions: [
       {
         question: "What does HTML stand for?",
@@ -85,7 +86,9 @@ export const data = [
   },
   {
     title: "CSS",
-    icon: "./assets/images/icon-css.svg",
+    icon: "/assets/images/icon-css.svg",
+    color: "bg-green-100",
+
     questions: [
       {
         question: "What does CSS stand for?",
@@ -163,7 +166,9 @@ export const data = [
   },
   {
     title: "JavaScript",
-    icon: "./assets/images/icon-js.svg",
+    icon: "/assets/images/icon-js.svg",
+    color: "bg-blue-100",
+
     questions: [
       {
         question:
@@ -262,7 +267,9 @@ export const data = [
   },
   {
     title: "Accessibility",
-    icon: "./assets/images/icon-accessibility.svg",
+    icon: "/assets/images/icon-accessibility.svg",
+    color: "bg-purple-100",
+
     questions: [
       {
         question: "What does 'WCAG' stand for?",

@@ -1,5 +1,11 @@
-import Image from "next/image";
+import Hero from "@/components/shared/Hero";
+import Topics from "@/components/shared/Topics";
 
 export default function Home() {
-  return <h1 className="text-heading-l-regular">Hello</h1>;
+  return (
+    <div className=" mt-24 flex justify-between max-tablet:flex-col gap-16 max-tablet:gap-10">
+      <Hero />
+      <Topics />
+    </div>
+  );
 }

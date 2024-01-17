@@ -10,16 +10,38 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      mobile: "375px",
+      tablet: "768px",
+      laptop: "1024px",
+      desktop: "1440px",
+    },
     container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
+      padding: {
+        DEFAULT: "24px",
+        mobile: "36px",
+        tablet: "64px",
+        laptop: "96px",
+        desktop: "144px",
       },
     },
     extend: {
       fontFamily: {
         rubik: ["var(--font-rubik)"],
+      },
+      backgroundImage: {
+        desktopLight:
+          "url('/assets/images/pattern-background-desktop-light.svg')",
+
+        desktopDark:
+          "url('/assets/images/pattern-background-desktop-dark.svg')",
+        mobileLight:
+          "url('/assets/images/pattern-background-mobile-light.svg')",
+        mobileDark: "url('/assets/images/pattern-background-mobile-dark.svg')",
+
+        tabletLight:
+          "url('/assets/images/pattern-background-tablet-light.svg')",
+        tabletDark: "url('/assets/images/pattern-background-tablet-dark.svg')",
       },
 
       colors: {
@@ -34,15 +56,15 @@ const config = {
     --green: 151, 70%, 50%, 1;
     --red: 0, 82%, 63%, 1;
          */
-        purple: "hsl(var(--purple))",
+        purpleCustom: "hsl(var(--purple))",
         darkNavy: "hsl(var(--dark-navy))",
-        navy: "hsl(var(--navy))",
+        navyCustom: "hsl(var(--navy))",
         grayNavy: "hsl(var(--gray-navy))",
         lightBluish: "hsl(var(--light-bluish))",
         lightGray: "hsl(var(--light-gray))",
         pureWhite: "hsl(var(--pure-white))",
-        green: "hsl(var(--green))",
-        red: "hsl(var(--red))",
+        greenCustom: "hsl(var(--green))",
+        redCustom: "hsl(var(--red))",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
