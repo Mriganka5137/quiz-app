@@ -107,7 +107,7 @@
     @apply text-[36px] font-medium leading-[120%] text-darkNavy dark:text-pureWhite;
   }
   .text-heading-s {
-    @apply text-[28px] font-normal leading-[100%] text-darkNavy dark:text-pureWhite max-tablet:text-[18px];
+    @apply text-[28px] font-normal leading-[120%] text-darkNavy dark:text-pureWhite max-tablet:text-[18px];
   }
   .text-body-l {
     @apply text-[20px] font-light italic leading-[150%] text-grayNavy dark:text-lightBluish max-tablet:text-[14px];

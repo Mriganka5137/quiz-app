@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 interface QuestionCardProps {
@@ -25,16 +26,16 @@ const QuestionCard = ({
   title,
   answer,
 }: QuestionCardProps) => {
-  const [select, setSelect] = useState<string | null>();
+  const [select, setSelect] = useState<string | null>(null);
   const [submit, setSubmit] = useState<boolean>(false);
   const [correct, setCorrect] = useState(false);
   const handleSubmit = () => {
+    setSubmit(true);
     if (select === answer) {
-      // setSelect(null);
       setCorrect(true);
     } else {
+      setCorrect(false);
     }
-    setSubmit(true);
   };
 
   return (
@@ -53,36 +54,55 @@ const QuestionCard = ({
             key={index}
             className={`  ${
               select === option ? "border-purpleCustom" : "border-transparent"
-            } flex gap-8 bg-pureWhite px-5 py-5 rounded-3xl dark:bg-navyCustom items-center  shadow-lg cursor-pointer dark:shadow-none shadow-neutral-200 group border-[3px] ${
+            } flex gap-8 bg-pureWhite px-5 py-5 rounded-3xl dark:bg-navyCustom items-center  shadow-lg cursor-pointer dark:shadow-none shadow-neutral-200 group border-[3px] justify-between ${
               submit && select === option
-                ? correct
-                  ? "border-green-500" // Change the border color to green if correct
-                  : "border-red-500" // Change the border color to red if incorrect
+                ? select === answer
+                  ? "border-greenCustom"
+                  : "border-red-500"
                 : ""
-            }`}
+            } `}
           >
-            <div
-              className={`${
-                select === option ? "bg-purpleCustom " : "bg-lightGray "
-              } w-14 h-14 flex items-center justify-center rounded-xl ${
-                submit && select === option
-                  ? correct
-                    ? "bg-green-500"
-                    : "bg-red-500"
-                  : "" // Change the background color to green if correct
-              }`}
-            >
-              <h3
-                className={`text-[28px] ${
-                  select === option
-                    ? "text-pureWhite"
-                    : "text-grayNavy group-hover:text-purpleCustom"
-                }   `}
+            <div className="flex gap-8 items-center  ">
+              <div
+                className={`${
+                  select === option ? "bg-purpleCustom " : "bg-lightGray "
+                } w-14 h-14 flex items-center justify-center rounded-xl flex-shrink-0 ${
+                  submit && select === option
+                    ? select === answer
+                      ? "bg-greenCustom"
+                      : "bg-red-500"
+                    : "" // Change the background color to green if correct
+                }`}
               >
-                {optionMapping[index]}
-              </h3>
+                <h3
+                  className={`text-[28px] ${
+                    select === option
+                      ? "text-pureWhite"
+                      : "text-grayNavy group-hover:text-purpleCustom"
+                  }   `}
+                >
+                  {optionMapping[index]}
+                </h3>
+              </div>
+              <h3 className=" text-heading-s">{option}</h3>
             </div>
-            <h3 className=" text-heading-s">{option}</h3>
+            {submit && answer === option && (
+              <Image
+                src="/assets/images/icon-correct.svg"
+                width={40}
+                height={40}
+                alt="correct"
+              />
+            )}
+
+            {submit && select === option && answer !== option && (
+              <Image
+                src="/assets/images/icon-error.svg"
+                width={40}
+                height={40}
+                alt="incorrect"
+              />
+            )}
           </div>
         ))}
 
