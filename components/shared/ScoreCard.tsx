@@ -13,8 +13,8 @@ const ScoreCard = ({ topic, imgSrc }: ScoreCardProps) => {
   const router = useRouter();
   const score = useScore((state) => state.score);
   const handlePlayAgain = () => {
-    useScore.setState({ score: 0 });
     router.push("/");
+    useScore.setState({ score: 0 });
   };
 
   return (
