@@ -6,7 +6,7 @@ interface ProgressBarProps {
 
 const ProgressBar = ({ id }: ProgressBarProps) => {
   return (
-    <div className=" w-full h-4 bg-pureWhite rounded-md p-1">
+    <div className=" w-full h-4 bg-pureWhite rounded-md p-1 dark:bg-navyCustom">
       <div
         className="h-full bg-purpleCustom rounded-md"
         style={{
