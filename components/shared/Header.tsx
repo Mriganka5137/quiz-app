@@ -28,12 +28,12 @@ const Header = () => {
       <div
         className={` ${
           header === "HTML"
-            ? "bg-red-50"
+            ? "bg-red-100"
             : header === "CSS"
-            ? "bg-green-50"
+            ? "bg-green-100"
             : header === "JavaScript"
-            ? "bg-blue-50"
-            : "bg-purple-50"
+            ? "bg-blue-100"
+            : "bg-purple-100"
         } w-14 h-14 p-2 bg-green-50 rounded-md`}
       >
         <Image

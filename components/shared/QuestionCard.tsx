@@ -28,12 +28,12 @@ const QuestionCard = ({
   answer,
 }: QuestionCardProps) => {
   const setScore = useScore((state) => state.setScore);
-  const score = useScore((state) => state.score);
-  const nextLink = id === "10" ? "/finish" : `/${title}/${parseInt(id) + 1}`;
+
+  const nextLink =
+    id === "10" ? `/${title}/finish` : `/${title}/${parseInt(id) + 1}`;
   const [select, setSelect] = useState<string | null>(null);
   const [submit, setSubmit] = useState<boolean>(false);
   const [correct, setCorrect] = useState(false);
-  console.log(score);
   const handleSubmit = () => {
     setSubmit(true);
     if (select === answer) {
@@ -60,10 +60,10 @@ const QuestionCard = ({
             key={index}
             className={`  ${
               select === option ? "border-purpleCustom" : "border-transparent"
-            } flex gap-8 bg-pureWhite px-5 py-5 rounded-3xl dark:bg-navyCustom items-center  shadow-lg cursor-pointer dark:shadow-none shadow-neutral-200 group border-[3px] justify-between ${
+            } flex gap-8 bg-pureWhite px-5 py-5 rounded-3xl dark:bg-navyCustom items-center  shadow-lg cursor-pointer dark:shadow-none shadow-neutral-200 group border-[3px] justify-between hover:-translate-y-1 transition-all ease-in-out duration-300 ${
               submit && select === option
-                ? select === answer
-                  ? "border-greenCustom"
+                ? option === answer
+                  ? "border-green-500"
                   : "border-red-500"
                 : ""
             } `}
@@ -74,8 +74,8 @@ const QuestionCard = ({
                   select === option ? "bg-purpleCustom " : "bg-lightGray "
                 } w-14 h-14 flex items-center justify-center rounded-xl flex-shrink-0 ${
                   submit && select === option
-                    ? select === answer
-                      ? "bg-greenCustom"
+                    ? option === answer
+                      ? "bg-green-500"
                       : "bg-red-500"
                     : "" // Change the background color to green if correct
                 }`}
@@ -118,16 +118,16 @@ const QuestionCard = ({
               handleSubmit();
             }}
             disabled={!select}
-            className="flex bg-purpleCustom px-5 py-7 rounded-3xl  items-center  shadow-lg  dark:shadow-neutral-100/10 shadow-neutral-300  text-heading-s text-pureWhite justify-center"
+            className="flex bg-purpleCustom px-5 py-7 rounded-3xl  items-center  shadow-lg  dark:shadow-neutral-100/10 shadow-neutral-300  text-heading-s text-pureWhite justify-center hover:-translate-y-1 transition-all ease-in-out duration-300"
           >
             Submit
           </button>
         ) : (
           <Link
             href={nextLink}
-            className="flex bg-purpleCustom px-5 py-7 rounded-3xl  items-center  shadow-lg  dark:shadow-neutral-100/10 shadow-neutral-300  text-heading-s text-pureWhite justify-center"
+            className="flex bg-purpleCustom px-5 py-7 rounded-3xl  items-center  shadow-lg  dark:shadow-neutral-100/10 shadow-neutral-300  text-heading-s text-pureWhite justify-center hover:-translate-y-1 transition-all ease-in-out duration-300"
           >
-            Next Question
+            {nextLink === `/${title}/finish` ? "Finish" : "Next Question"}
           </Link>
         )}
       </div>
