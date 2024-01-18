@@ -104,7 +104,7 @@
     @apply text-[64px] font-light leading-[100%] text-darkNavy dark:text-pureWhite max-tablet:text-[40px];
   }
   .text-heading-m {
-    @apply text-[36px] font-medium leading-[120%] text-darkNavy dark:text-pureWhite;
+    @apply text-[36px] font-medium leading-[120%] text-darkNavy dark:text-pureWhite max-tablet:text-[20px];
   }
   .text-heading-s {
     @apply text-[28px] font-normal leading-[120%] text-darkNavy dark:text-pureWhite max-tablet:text-[18px];

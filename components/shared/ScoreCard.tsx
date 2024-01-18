@@ -1,7 +1,7 @@
 "use client";
 import useScore from "@/lib/store";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface ScoreCardProps {
@@ -10,7 +10,12 @@ interface ScoreCardProps {
 }
 
 const ScoreCard = ({ topic, imgSrc }: ScoreCardProps) => {
+  const router = useRouter();
   const score = useScore((state) => state.score);
+  const handlePlayAgain = () => {
+    useScore.setState({ score: 0 });
+    router.push("/");
+  };
 
   return (
     <div className="w-1/2 max-laptop:w-full ">
@@ -32,8 +37,12 @@ const ScoreCard = ({ topic, imgSrc }: ScoreCardProps) => {
           <p className=" text-body-m">out of 10</p>
         </div>
       </div>
-      <button className=" bg-purpleCustom w-full text-center p-8 text-pureWhite text-[28px] rounded-[24px] font-normal min-h-14 mt-8 max-tablet:text-[18px] max-tablet:p-2 max-tablet:rounded-[12px] max-tablet:mt-3">
-        <Link href="/">Play Again</Link>
+
+      <button
+        className=" bg-purpleCustom w-full text-center p-8 text-pureWhite text-[28px] rounded-[24px] font-normal min-h-14 mt-8 max-tablet:text-[18px] max-tablet:p-2 max-tablet:rounded-[12px] max-tablet:mt-3"
+        onClick={handlePlayAgain}
+      >
+        Play Again
       </button>
     </div>
   );

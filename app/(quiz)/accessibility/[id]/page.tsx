@@ -12,7 +12,7 @@ const AccessibilityPage = ({ params: { id } }: AccessibilityPageProps) => {
   const answer = questions[parseInt(id) - 1].answer;
   const options = questions[parseInt(id) - 1].options;
   return (
-    <div className=" mt-24">
+    <div className="mt-24 max-laptop:mt-12 max-tablet:mt-8">
       <QuestionCard
         answer={answer}
         question={question}
